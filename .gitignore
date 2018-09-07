@@ -1,0 +1,24 @@
+# Dependency directory
+# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git-
+node_modules
+
+# Mac OS X
+.DS_Store
+
+npm-debug.log
+
+#artefacts
+lib
+
+coverage
+typings
+src/typings.js
+tests-xunit.xml
+lib_covered
+data/*
+
+TODO\.yml
+
+scripts/run-local-docker\.sh
+
+scripts/run-local\.sh
