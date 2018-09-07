@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "module": "commonjs",
+    "declaration": false,
+    "removeComments": false,
+    "noLib": false,
+    "pretty": true,
+    "lib": ["es6", "esnext"],
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitUseStrict": false,
+    "noFallthroughCasesInSwitch": true,
+    "rootDir": "src",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "outDir": "lib",
+    // "sourceMap": true,
+    "inlineSourceMap": true
+  },
+  "include": [
+    "src/**/*",
+    "custom_typings/**/*"
+  ],
+  "compileOnSave": false
+}
