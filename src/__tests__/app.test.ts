@@ -15,18 +15,4 @@ describe('Dummy test suite', () => {
       expect(true).toEqual(true);
     });
   });
-  describe('Dummy test sub suite B', () => {
-    beforeAll(() => {
-      logger.info('beforeAll in suite B');
-    });
-    afterAll(() => {
-      logger.info('afterAll in suite B');
-    });
-    beforeEach(() => {
-      logger.info('beforeEach in suite B');
-    });
-    it('you should write some tests', () => {
-      expect(true).toEqual(false);
-    });
-  });
 });

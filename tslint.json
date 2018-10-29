@@ -37,13 +37,13 @@
         "jquery-deferred-must-complete": true,
         "label-position": true,
         "mocha-avoid-only": true,
-        "mocha-no-side-effect-code": true,
+        "mocha-no-side-effect-code": false,
         "no-any": false,
         "no-arg": true,
         "no-backbone-get-set-outside-model": false,
         "no-bitwise": true,
         "no-conditional-assignment": true,
-        "no-console": [true, "debug", "info", "log", "time", "timeEnd", "trace"],
+        "no-console": [false, "debug", "info", "log", "time", "timeEnd", "trace"],
         "no-constant-condition": true,
         "no-control-regex": true,
         "no-debugger": true,
@@ -109,7 +109,7 @@
         "no-for-in": true,
         "no-function-expression": true,
         "no-inferrable-types": false, // turn no-inferrable-types off in order to make the code consistent in its use of type decorations
-        "no-multiline-string": true, // multiline-strings often introduce unnecessary whitespace into the string literals
+        "no-multiline-string": false, // multiline-strings often introduce unnecessary whitespace into the string literals
         "no-null-keyword": false, // turn no-null-keyword off and use undefined to mean not initialized and null to mean without a value
         // "no-parameter-properties": true,
         // "no-relative-imports": true,
