@@ -9,8 +9,12 @@ describe('Divide N Test', () => {
   //   const result = new ExeExpression().execute('1+2+3*4-5');
   //   expect(result).toBe(10);
   // });
-  test('test 3', () => {
-    const result = new ExeExpression().execute('1+2+3*(4-5)');
+  // test('test 3', () => {
+  //   const result = new ExeExpression().execute('1+2+3*(4-5)');
+  //   expect(result).toBe(0);
+  // });
+  test('test 4', () => {
+    const result = new ExeExpression().execute('1+2+abc*(4-5)');
     expect(result).toBe(0);
   });
 });

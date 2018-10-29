@@ -10,7 +10,22 @@ export class ExeExpression {
 
   public execute(input: string) {
     const compiled = this.compile(input);
-    // return this.evaluateToke(compiled);
+    console.log(this.variables);
+    if (Object.keys(this.variables).length) {
+      
+      const stdin = process.openStdin();
+      stdin.addListener("data", function(d) {
+        // note:  d is an object, and when converted to a string it will
+        // end with a linefeed.  so we (rather crudely) account for that  
+        // with toString() and then trim() 
+        console.log("you entered: [" + 
+            d.toString().trim() + "]");
+      });
+
+      
+    }
+
+    return this.evaluateToke(compiled);
   }
 
   public compile (expression: string) {
@@ -82,7 +97,7 @@ export class ExeExpression {
         continue;
       }
 
-      const isOp = [].concat(...this.opArr).indexOf(tokenEle);
+      const isOp = [].concat(...this.opArr).indexOf(tokenEle) >= 0;
 
       if (isOp) {
         tokens.push({
