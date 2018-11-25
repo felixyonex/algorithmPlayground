@@ -5,6 +5,7 @@ import * as ProgressBar from 'progress';
 import { BinarySearch } from './binarySearch';
 import { BinaryTree } from './binaryTree';
 import { BagItem, DivideNIntoKParts, GetMaxCostInBag, KnapSackWithGivenWeight } from './dynamicProgramming';
+import { ExeExpression } from './formalGrammar';
 import { MinAndMax } from './minAndMax';
 import { PolygonalChain } from './polygonalChain';
 import { Segment } from './segment';
@@ -617,4 +618,9 @@ export async function putItemInBagRuntime() {
     }
   }
   test();
+}
+
+export function fomalGrammarTest () {
+  const result = new ExeExpression().execute('3-2-1*(4-5)*3 + (2 + 3) * 1');
+  console.log('result is ' + result);
 }

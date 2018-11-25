@@ -219,7 +219,7 @@ export class GetMaxCostInBag {
 
   public getWeightItems(inputArr: BagItem[], sum: number): number {
     const len = inputArr.length;
-    const emptyItem = new BagItem("a0", 0, 0);
+    const emptyItem = new BagItem('a0', 0, 0);
     inputArr.unshift(emptyItem);
     const dp: number[][] = [];
 
@@ -354,7 +354,7 @@ export class KnapSackWithGivenWeight {
       return this.resultArr[maxIdx].map(ele => ele.name).reverse();
     }
 
-    return ["Cannot find the subset"];
+    return ['Cannot find the subset'];
   }
 }
 

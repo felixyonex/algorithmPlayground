@@ -6,7 +6,7 @@ if (!(<any>global)._babelPolyfill) {
 import 'reflect-metadata';
 import { logger } from './logger';
 import { deleteKRuntime, divideNCount, divideNRuntime, divideNWithDiffKCount, divideNWithDiffKOutput,
-  findMinAndMaxRuntime, findXRuntime, getMaxJointLengthRuntime, getMaxSubSumRuntime,
+  findMinAndMaxRuntime, findXRuntime, fomalGrammarTest, getMaxJointLengthRuntime, getMaxSubSumRuntime,
   getSumSRuntime, insertBinaryTreeRuntime, putItemInBagRuntime, squareRootRuntime, verticesInChainRuntime, verticesRuntime } from './main';
 (async () => {
   // await getSumSRuntime();
@@ -24,7 +24,9 @@ import { deleteKRuntime, divideNCount, divideNRuntime, divideNWithDiffKCount, di
   // await divideNWithDiffKCount();
   // await divideNWithDiffKOutput();
   // await knapSackRuntime();
-  await putItemInBagRuntime();
+  //await putItemInBagRuntime();
 })().catch(error =>
   logger.error('error during server start:' + JSON.stringify(error.stack))
 );
+
+fomalGrammarTest();

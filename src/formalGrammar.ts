@@ -1,28 +1,35 @@
+import * as readline from 'readline';
 export class ExeExpression {
 
   public tokens: Token[];
 
-  public variables: any = {};
+  public variablesMap = new Map();
+  public variablesSet = new Set();
 
   public opArr = [['/', '*'], ['+', '-']];
 
   public char = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
-  public execute(input: string) {
+  public async execute(input: string) {
     const compiled = this.compile(input);
-    console.log(this.variables);
-    if (Object.keys(this.variables).length) {
-      
-      const stdin = process.openStdin();
-      stdin.addListener("data", function(d) {
-        // note:  d is an object, and when converted to a string it will
-        // end with a linefeed.  so we (rather crudely) account for that  
-        // with toString() and then trim() 
-        console.log("you entered: [" + 
-            d.toString().trim() + "]");
+    console.log(this.variablesSet);
+    if (this.variablesSet.size > 0) {
+      // tslint:disable-next-line:no-require-imports
+      //const readlineSync = require('readline-sync');
+
+      const rl = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout
       });
 
-      
+      for (const ele of this.variablesSet) {
+         await rl.question(`Please enter the value of ${ele}`, async (val) => {
+          console.log(`Thank you for your valuable feedback: ${val}`);
+          rl.close();
+          //const answer = readlineSync.question(`Please enter the value of ${key}: `);
+          await this.variablesMap.set(ele, val);
+        });
+      }
     }
 
     return this.evaluateToke(compiled);
@@ -83,10 +90,10 @@ export class ExeExpression {
           if (char.indexOf(expression[i]) < 0) {
             break;
           }
-          varToken += tokenEle;
+          varToken += expression[i];
           i ++;
         }
-        this.variables[varToken] = true;
+        this.variablesSet.add(varToken);
         tokens.push({
           type: 'variable',
           pos: i,
@@ -294,7 +301,8 @@ export class ExeExpression {
 
     switch (token.type) {
         case 'variable':
-          return value;
+          const key = value;
+          return this.variablesMap.get(key);
         case 'number':
           return Number(value);
         case 'operator':
@@ -309,7 +317,7 @@ export class ExeExpression {
             case '-':
               return this.evaluateToke(token.left) - this.evaluateToke(token.right);
             default:
-              break;
+              throw new Error('Unexpected operator detected');
           }
         default:
         break;
